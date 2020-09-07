@@ -6,7 +6,7 @@
      <div class="container">
          <div class="row">
              <div class="col-md-8 mx-auto">
-                 <h2>プロフィール新規作成画面</h2>
+                 <h2>Myプロフィール</h2>
              </div>
          </div>
      </div>
