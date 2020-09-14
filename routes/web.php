@@ -22,8 +22,6 @@ Route::group(['prefix' => 'admin'], function(){
 //PHP/Laravel09 Routingを理解する。 ↓課題３，４
 
 //課題３
-    Route::get('XXX', 'AAAController@bbb');
-
 
 //課題４
 Route::group(['prefix' => 'admin'],function(){
