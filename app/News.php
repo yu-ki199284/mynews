@@ -8,7 +8,7 @@ class News extends Model
 {
     protected $guarded = array('id');
     public static $rules = array(
-        'title' => 'recuired',
-        'body' => 'recuired',
+        'title' => 'required',
+        'body' => 'required',
         );
 }
