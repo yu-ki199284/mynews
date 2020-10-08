@@ -15,19 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'admin'], function(){
-    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
-});
-
-//PHP/Laravel09 Routingを理解する。 ↓課題３，４
-
 //課題３
-
-//課題４
-Route::group(['prefix' => 'admin'],function(){
-    Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
-    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
-});
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -36,15 +24,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::get('news/create', 'Admin\NewsController@add');
-    Route::post('news/create', 'Admin\NewsController@create'); #追記
-});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::post('profile/create','Admin\ProfileController@create');
     Route::post('profile/edit', 'Admin\ProfileController@update');
-    Route::get('profile/edit', 'Admin\NewsController@edit');
+    Route::get('profile/edit', 'Admin\ProfileController@edit');
 });
 
 Route::group(['prefix' => 'admin'], function() {
