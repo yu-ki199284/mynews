@@ -20,15 +20,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-    Route::post('profile/create','Admin\ProfileController@create');
-    Route::post('profile/edit', 'Admin\ProfileController@update');
-    Route::get('profile/edit', 'Admin\ProfileController@edit');
+    Route::post('profile/create','Admin\ProfileController@create')->middleware('auth');
+    Route::post('profile/edit', 'Admin\ProfileController@update')->middleware('auth');
+    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
 });
 
 Route::group(['prefix' => 'admin'], function() {

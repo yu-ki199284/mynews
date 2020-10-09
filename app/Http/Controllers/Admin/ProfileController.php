@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Profile;
 
-use App\ProfileHistory;
+use App\profilehistory;
 
 use Carbon\Carbon;
 
@@ -45,7 +45,7 @@ class ProfileController extends Controller
     
     public function update()
     {
-        $profilehistory = new ProfileHistory;
+        $profilehistory = new profilehistory;
         $profilehistory->profile_id = $profile->id;
         $profilehistory->edited_at = Carbon::now();
         $profilehistory->save();
