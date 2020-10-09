@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Profile;
 
-use App\profilehistory;
+use App\ProfileHistories;
 
 use Carbon\Carbon;
 
@@ -21,9 +21,9 @@ class ProfileController extends Controller
     
     public function create(Request $request)
     {
-        $this->validate($request, Profile::$rules);
+        $this->validate($request, ProfileHistories::$rules);
         
-        $profile = new Profile;
+        $profile = new ProfileHistories;
         $form = $request->all();
         
         unset($form['_token']);
@@ -36,7 +36,7 @@ class ProfileController extends Controller
     
     public function edit(Request $request)
     {
-        $profile = Profile::find($request->id);
+        $profile = ProfileHistories::find($request->id);
         if(empty($profile)){
             abort(404);
         }
@@ -45,10 +45,10 @@ class ProfileController extends Controller
     
     public function update()
     {
-        $profilehistory = new profilehistory;
-        $profilehistory->profile_id = $profile->id;
-        $profilehistory->edited_at = Carbon::now();
-        $profilehistory->save();
+        $profilehistories = new ProfileHistories;
+        $profilehistories->profile_id = $profile->id;
+        $profilehistories->edited_at = Carbon::now();
+        $profilehistories->save();
         
         return redirect('admin/profile/edit');
     }
