@@ -43,12 +43,23 @@ class ProfileController extends Controller
         return view('admin.profile.edit', ['profile_form' => $profile]);
     }
     
-    public function update()
+    public function update(Request $request)
     {
-        $profilehistories = new ProfileHistories;
-        $profilehistories->profile_id = $profile->id;
-        $profilehistories->edited_at = Carbon::now();
-        $profilehistories->save();
+        $this->validate($request, Profile::$rules);
+        
+        $profile = Profile::find($request->id);
+        
+        $profile_form = $request->all();
+        
+        unset($profile_form['_token']);
+        unset($profile_form['remove']);
+        
+        $profile->fill($profile_form)->save();
+        
+        $profile = new ProfileHistories;
+        $profile->profile_id = $profile->id;
+        $profile->edited_at = Carbon::now();
+        $profile->save();
         
         return redirect('admin/profile/edit');
     }
