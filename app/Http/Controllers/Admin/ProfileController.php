@@ -21,9 +21,9 @@ class ProfileController extends Controller
     
     public function create(Request $request)
     {
-        $this->validate($request, ProfileHistories::$rules);
+        $this->validate($request, Profile::$rules);
         
-        $profile = new ProfileHistories;
+        $profile = new Profile;
         $form = $request->all();
         
         unset($form['_token']);
@@ -36,7 +36,7 @@ class ProfileController extends Controller
     
     public function edit(Request $request)
     {
-        $profile = ProfileHistories::find($request->id);
+        $profile = Profile::find($request->id);
         if(empty($profile)){
             abort(404);
         }
