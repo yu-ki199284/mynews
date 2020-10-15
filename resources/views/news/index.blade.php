@@ -29,6 +29,7 @@
     <hr color="#c0c0c0">
     <div class="row">
         <div class="posts col-md-8 mx-auto mt-3">
+            @if(!empty($posts))
             @foreach($posts as $post)
             <div class="post">
                 <div class="row">
@@ -52,6 +53,7 @@
             </div>
             <hr color="#c0c0c0">
             @endforeach
+            @endif
         </div>
     </div>
 </div>
