@@ -11,16 +11,16 @@
                     <div class="caption mx-auto">
                         <div class="image">
                             @if ($headline->image_path)
-                            <img src="{{ asset('storage/iamge/' . $headline->image_path) }}">
+                            <img src="{{ asset('storage/image/' . $headline->image_path) }}">
                             @endif
                         </div>
                         <div class="title p-2">
-                            <h1>{{ str_limit($headline->title, 70) }}</h1>
+                            <h1>{{ str_limit($headline->title, 100) }}</h1>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <p class="body mx-auto">{{ str_limit($headline->body, 650) }}</p>
+                    <p class="body mx-auto">{{ str_limit($headline->body, 1000) }}</p>
                 </div>
             </div>
         </div>
