@@ -1,4 +1,5 @@
 @extends('layouts.front_profile')
+@section('title','登録済みプロフィールの一覧')
 
 @section('content')
     <div class="container">
@@ -36,11 +37,17 @@
                                 <div class="date">
                                     {{ $post->updated_at->format('Y年m月d日') }}
                                 </div>
-                                <div class="title">
-                                    {{ str_limit($post->title, 150) }}
+                                <div class="name">
+                                    {{ "名前:" . str_limit($post->name, 150) }}
                                 </div>
-                                <div class="body mt-3">
-                                    {{ str_limit($post->body, 1500) }}
+                                <div class="gender">
+                                    {{ "性別:" . str_limit($post->gender, 150) }}
+                                </div>
+                                <div class="hobby">
+                                    {{ "趣味:" . str_limit($post->hobby, 150) }}
+                                </div>
+                                <div class="introduction">
+                                    {{ "自己紹介:" . str_limit($post->introduction, 1500) }}
                                 </div>
                             </div>
                             <div class="image col-md-6 text-right mt-4">
