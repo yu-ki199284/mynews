@@ -34,9 +34,3 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
-
-user::create([
-    'name' => '森本',
-    'email' => 'morimoto@tech.com',
-    'password' => Hash::make("pass"),
-    ]);
